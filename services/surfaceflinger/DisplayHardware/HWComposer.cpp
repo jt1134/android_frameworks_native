@@ -721,7 +721,7 @@ status_t HWComposer::prepare() {
                 // garbage data to catch improper use
                 mLists[i]->dpy = (hwc_display_t)0xDEADBEEF;
                 mLists[i]->sur = (hwc_surface_t)0xDEADBEEF;
-            } else if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_0)) {
+            } else { //if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_0)) {
                 mLists[i]->dpy = EGL_NO_DISPLAY;
                 mLists[i]->sur = EGL_NO_SURFACE;
             }
@@ -731,7 +731,7 @@ status_t HWComposer::prepare() {
     ALOGE_IF(err, "HWComposer: prepare failed (%s)", strerror(-err));
 
     if (err == NO_ERROR) {
-        if (hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_0)) {
+        if (true) {//hwcHasApiVersion(mHwc, HWC_DEVICE_API_VERSION_1_0)) {
             // here we're just making sure that "skip" layers are set
             // to HWC_FRAMEBUFFER and we're also counting how many layers
             // we have of each type.
